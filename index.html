@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Borked UI Jam — Submit Your Entry (Trust Me)</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Papyrus&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="cursor-offset" id="cursorFake"></div>
+
+  <header class="runaway-header">
+    <h1 id="mainTitle">Borked UI Jam — Submit Here!</h1>
+    <p class="subtitle">The top best entries win nothing.</p>
+  </header>
+
+  <main class="main-content">
+    <div class="modal-overlay" id="cookieModal">
+      <div class="modal modal-shake">
+        <h2>🍪 We use cookies (we don't)</h2>
+        <p>Click one. Or don't. We already have your data.</p>
+        <button type="button" class="btn btn-accept" data-action="accept">Accept All</button>
+        <button type="button" class="btn btn-reject" data-action="reject">Reject All</button>
+      </div>
+    </div>
+
+    <form class="borked-form" id="submitForm">
+      <fieldset class="fieldset-wobbly">
+        <legend>Your Entry (Required)</legend>
+        <label for="gameName">Game name:</label>
+        <input type="text" id="gameName" placeholder="Type your game name here (we'll forget it)" maxlength="5">
+        <span class="char-count">0/5 chars (yes, 5 max)</span>
+      </fieldset>
+
+      <fieldset class="fieldset-wobbly">
+        <legend>Link (Optional but actually required)</legend>
+        <label for="gameLink">itch.io URL:</label>
+        <input type="url" id="gameLink" placeholder="https://nothing.itch.io/nothing">
+      </fieldset>
+
+      <fieldset class="fieldset-wobbly">
+        <legend>Category</legend>
+        <label>Pick one (the dropdown picks for you):</label>
+        <select id="category">
+          <option value="">-- Loading... --</option>
+          <option value="best">Best Borked</option>
+          <option value="worst">Worst Borked</option>
+          <option value="yes">Just Yes</option>
+        </select>
+      </fieldset>
+
+      <fieldset class="fieldset-wobbly">
+        <legend>Agreements</legend>
+        <label class="checkbox-label">
+          <input type="checkbox" id="agree1" name="agree"> I agree to everything
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" id="agree2" name="agree"> I disagree (this one controls the first)
+        </label>
+      </fieldset>
+
+      <div class="submit-zone">
+        <button type="button" class="btn btn-submit runaway-btn" id="submitBtn">Submit Entry</button>
+        <button type="button" class="btn btn-fake" id="fakeSubmit">No, Submit HERE</button>
+        <button type="button" class="btn btn-fake2" id="realSubmit">Actually HERE</button>
+      </div>
+    </form>
+
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loader"></div>
+      <p id="loadingText">Submitting to the void...</p>
+      <p class="loading-sub">Please wait. Or don't. We're not actually sending anything.</p>
+    </div>
+
+    <div class="success-modal" id="successModal">
+      <div class="success-content">
+        <h2>🎉 Error 418: I'm a teapot</h2>
+        <p>Your entry was not submitted. Try again never.</p>
+        <button type="button" class="btn btn-close-modal" id="closeSuccess">Close (it does nothing)</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer-borked">
+    <p>Borked UI Jam — Where good taste goes to die.</p>
+    <p class="marquee"><span>Sponsored by nobody • Legal: we are not liable • Contact: don't • Refresh the page for a new nightmare</span></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

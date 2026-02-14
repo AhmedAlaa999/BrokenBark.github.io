@@ -1,0 +1,344 @@
+/* Borked UI Jam — Delightfully Broken Styles */
+
+:root {
+  --neon-pink: #ff00ff;
+  --neon-green: #00ff88;
+  --mustard: #e6b800;
+  --bleach: #ffff00;
+  --sad-blue: #0044aa;
+  --blood: #aa0022;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto; /* "Smooth" would be too kind */
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+  background: linear-gradient(135deg, var(--neon-pink) 0%, var(--mustard) 50%, var(--neon-green) 100%);
+  background-attachment: fixed;
+  color: var(--blood);
+  overflow-x: hidden;
+  cursor: none; /* We'll use a fake one */
+}
+
+.cursor-offset {
+  position: fixed;
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--blood);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.05s ease-out;
+}
+
+/* Header that doesn't stay put */
+.runaway-header {
+  text-align: center;
+  padding: 2rem 1rem;
+  position: relative;
+}
+
+.runaway-header h1 {
+  font-family: Papyrus, fantasy;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  color: var(--bleach);
+  text-shadow: 4px 4px 0 var(--blood), -2px -2px 0 var(--sad-blue);
+  transform: rotate(-1deg);
+  animation: titleWobble 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes titleWobble {
+  from { transform: rotate(-1deg) scale(1); }
+  to   { transform: rotate(1deg) scale(1.02); }
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--sad-blue);
+  opacity: 0.9;
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 1; }
+}
+
+.main-content {
+  max-width: 600px;
+  margin: 0 auto 4rem;
+  padding: 1rem;
+  position: relative;
+}
+
+/* Cookie modal — can't escape */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: var(--mustard);
+  padding: 2rem;
+  border: 6px solid var(--neon-pink);
+  border-radius: 0;
+  box-shadow: 12px 12px 0 var(--blood);
+  max-width: 90%;
+}
+
+.modal-shake {
+  animation: shake 0.4s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25%     { transform: translateX(-8px); }
+  75%     { transform: translateX(8px); }
+}
+
+.modal h2 {
+  margin-top: 0;
+  font-family: Papyrus, fantasy;
+  color: var(--blood);
+}
+
+.modal .btn {
+  margin: 0.5rem;
+}
+
+/* Form chaos */
+.borked-form {
+  background: rgba(255,255,255,0.3);
+  padding: 1.5rem;
+  border: 4px dashed var(--neon-green);
+  transform: rotate(0.3deg);
+}
+
+.fieldset-wobbly {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 2px solid var(--sad-blue);
+  border-radius: 20px 0 20px 0;
+  animation: fieldWobble 3s ease-in-out infinite;
+}
+
+@keyframes fieldWobble {
+  0%, 100% { transform: skewX(0deg); }
+  50%     { transform: skewX(-0.5deg); }
+}
+
+.fieldset-wobbly legend {
+  font-family: Papyrus, fantasy;
+  color: var(--bleach);
+  padding: 0 0.5rem;
+}
+
+.fieldset-wobbly label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--blood);
+}
+
+.fieldset-wobbly input[type="text"],
+.fieldset-wobbly input[type="url"],
+.fieldset-wobbly select {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 3px solid var(--neon-pink);
+  background: var(--bleach);
+  color: var(--blood);
+}
+
+.fieldset-wobbly input:focus,
+.fieldset-wobbly select:focus {
+  outline: none;
+  border-color: var(--neon-green);
+  box-shadow: 0 0 0 4px var(--neon-green);
+}
+
+.char-count {
+  font-size: 0.85rem;
+  color: var(--sad-blue);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+
+.checkbox-label input {
+  width: 24px;
+  height: 24px;
+  accent-color: var(--neon-pink);
+}
+
+/* Buttons */
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-family: 'Comic Neue', cursive;
+  font-weight: bold;
+  border: 3px solid;
+  cursor: pointer;
+  transition: none;
+}
+
+.btn-submit {
+  background: var(--neon-green);
+  border-color: var(--blood);
+  color: var(--blood);
+}
+
+.btn-submit:hover {
+  background: var(--blood);
+  color: var(--neon-green);
+  transform: scale(1.1);
+}
+
+.runaway-btn {
+  position: relative;
+  transition: left 0.15s ease-out, top 0.15s ease-out;
+}
+
+.btn-fake,
+.btn-fake2 {
+  background: var(--mustard);
+  border-color: var(--sad-blue);
+  color: var(--sad-blue);
+  margin-left: 0.5rem;
+}
+
+.submit-zone {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  position: relative;
+  min-height: 80px;
+}
+
+/* Loading screen */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--sad-blue);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.loading-screen.visible {
+  display: flex;
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 6px solid var(--bleach);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(-360deg); }
+}
+
+.loading-screen p {
+  color: var(--bleach);
+  font-size: 1.25rem;
+  margin-top: 1rem;
+}
+
+.loading-sub {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Success (failure) modal */
+.success-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(255,0,255,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.success-modal.visible {
+  display: flex;
+}
+
+.success-content {
+  background: var(--mustard);
+  padding: 2rem;
+  border: 8px solid var(--neon-green);
+  text-align: center;
+  animation: shake 0.3s ease-in-out infinite;
+}
+
+.success-content h2 {
+  font-family: Papyrus, fantasy;
+  color: var(--blood);
+  margin-top: 0;
+}
+
+.btn-close-modal {
+  background: var(--blood);
+  color: var(--bleach);
+  border-color: var(--bleach);
+  margin-top: 1rem;
+}
+
+/* Footer */
+.footer-borked {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--sad-blue);
+  font-size: 0.9rem;
+}
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 0.5rem;
+}
+
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Hide cookie modal when accepted (both buttons do the same) */
+.modal-overlay.hidden {
+  display: none;
+}
