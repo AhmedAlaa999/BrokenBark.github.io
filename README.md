@@ -48,8 +48,9 @@ No build step required.
 
 ## License
 
-Use and remix as you like. Credit optional but nice.
+Use and remix as you like. Credit : Ahmed Alaa.
 
 ---
 
 **Borked UI Jam — Where good taste goes to die.**
+
