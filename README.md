@@ -44,7 +44,8 @@ CSS
 JavaScript
 
 📸 Preview
---------<img width="1343" height="633" alt="Screenshot (229)" src="https://github.com/user-attachments/assets/43ec5434-16b1-449c-87f6-033305f14692" />
+--------
+<img width="1343" height="633" alt="Screenshot (229)" src="https://github.com/user-attachments/assets/43ec5434-16b1-449c-87f6-033305f14692" />
 
 🚀 Live Demo
 ----------
